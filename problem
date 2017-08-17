@@ -1,0 +1,25 @@
+  package.json文件下报错：
+  npm scripts不能执行 NODE_ENV=production
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack",
+    "server": "webpack-dev-server --open",
+    "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress"
+  },
+ 
+ 错误提示 :
+ 'NODE_ENV' 不是内部或外部命令，也不是可运行的程序或批处理文件。
+ 
+ 
+ 
+ Windows 下是 set NODE_ENV production
+ 
+ 修改后如下正常：
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack",
+    "server": "webpack-dev-server --open",
+    "build": "set NODE_ENV=production && webpack --config ./webpack.production.config.js --progress"
+},
+ 
